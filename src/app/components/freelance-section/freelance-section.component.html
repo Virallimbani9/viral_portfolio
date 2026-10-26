@@ -1,0 +1,22 @@
+<section class="freelance-section section-padding">
+  <div class="container-custom">
+    <div class="section-header animate-on-scroll">
+      <h2>Freelance Services</h2>
+      <p>What I can build for you</p>
+    </div>
+
+    <div class="services-grid animate-on-scroll">
+      <div *ngFor="let service of services" class="service-item">
+        <i [class]="'fas ' + service.icon"></i>
+        <span>{{ service.name }}</span>
+      </div>
+    </div>
+
+    <div class="freelance-cta animate-on-scroll">
+      <p>Have a project in mind? Let's build something great together.</p>
+      <button class="btn-primary-custom" (click)="scrollToContact()">
+        Let's Talk
+      </button>
+    </div>
+  </div>
+</section>

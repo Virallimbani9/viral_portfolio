@@ -1,0 +1,58 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+
+.why-section {
+  .reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+
+    .reason-card {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: $bg-card;
+      border-radius: $border-radius-lg;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: $transition-smooth;
+
+      &:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.07);
+        border-color: rgba(108, 99, 255, 0.2);
+
+        .reason-icon {
+          transform: scale(1.1);
+        }
+      }
+
+      .reason-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 15px;
+        border-radius: 50%;
+        background: rgba(108, 99, 255, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: $primary-color;
+        transition: $transition-smooth;
+      }
+
+      h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: $text-light;
+      }
+
+      p {
+        font-size: 0.95rem;
+        color: $text-muted;
+        line-height: 1.6;
+        margin: 0;
+      }
+    }
+  }
+}

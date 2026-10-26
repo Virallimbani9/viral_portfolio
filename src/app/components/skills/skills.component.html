@@ -1,0 +1,37 @@
+<section id="skills" class="skills-section section-padding">
+  <div class="container-custom">
+    <div class="section-header animate-on-scroll">
+      <h2>Technical Skills</h2>
+      <p>Technologies I work with regularly</p>
+    </div>
+
+    <div class="skills-grid">
+      <div
+        *ngFor="let category of categories"
+        class="skill-category animate-on-scroll"
+      >
+        <h3 class="category-title">{{ getCategoryLabel(category) }}</h3>
+        <div class="skill-items">
+          <div
+            *ngFor="let skill of getSkillsByCategory(category)"
+            class="skill-item"
+          >
+            <div class="skill-icon">
+              <i [class]="skill.icon"></i>
+            </div>
+            <div class="skill-info">
+              <span class="skill-name">{{ skill.name }}</span>
+              <div class="skill-bar">
+                <div
+                  class="skill-progress"
+                  [style.width.%]="skill.proficiency"
+                  [style.animationDelay]="'0.' + skill.id + 's'"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

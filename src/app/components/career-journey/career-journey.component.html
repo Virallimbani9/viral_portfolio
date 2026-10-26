@@ -1,0 +1,24 @@
+<section class="career-journey-section section-padding">
+  <div class="container-custom">
+    <div class="section-header animate-on-scroll">
+      <h2>My Career Journey</h2>
+      <p>Continuous growth and evolution as a developer</p>
+    </div>
+
+    <div class="journey-timeline">
+      <div
+        *ngFor="let milestone of milestones; let i = index"
+        class="journey-step animate-on-scroll"
+        [style.animationDelay]="(i * 0.1) + 's'"
+      >
+        <div class="step-number">{{ i + 1 }}</div>
+        <div class="step-content">
+          <span class="step-year">{{ milestone.year }}</span>
+          <h3>{{ milestone.title }}</h3>
+          <p>{{ milestone.description }}</p>
+        </div>
+        <div class="step-connector" *ngIf="i < milestones.length - 1"></div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,99 @@
+<section id="projects" class="projects-section section-padding">
+  <div class="container-custom">
+    <div class="section-header animate-on-scroll">
+      <h2>Personal Projects</h2>
+      <p>Complete applications built from concept to deployment</p>
+    </div>
+
+    <div class="projects-grid">
+      <div
+        *ngFor="let project of projects"
+        class="project-card animate-on-scroll"
+        (click)="openProject(project)"
+      >
+        <div class="project-image">
+          <img
+            [src]="project.image"
+            [alt]="project.title"
+            loading="lazy"
+          />
+          <div class="project-overlay">
+            <span class="project-category">
+              <i [class]="'fas ' + getCategoryIcon(project.category)"></i>
+              {{ project.category | titlecase }}
+            </span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description }}</p>
+          <div class="project-tech">
+            <span *ngFor="let tech of project.technologies.slice(0, 3)" class="tech-tag">
+              {{ tech }}
+            </span>
+            <span *ngIf="project.technologies.length > 3" class="tech-tag more">
+              +{{ project.technologies.length - 3 }}
+            </span>
+          </div>
+          <button class="btn-primary-custom btn-sm">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Modal -->
+  <div class="project-modal" *ngIf="selectedProject" (click)="closeProject()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="modal-close" (click)="closeProject()">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="modal-body">
+        <div class="modal-gallery">
+          <img
+            [src]="selectedProject.images ? selectedProject.images[selectedImageIndex] : selectedProject.image"
+            [alt]="selectedProject.title"
+          />
+          <div class="gallery-controls" *ngIf="selectedProject.images && selectedProject.images.length > 1">
+            <button (click)="prevImage()"><i class="fas fa-chevron-left"></i></button>
+            <span>{{ selectedImageIndex + 1 }} / {{ selectedProject.images.length }}</span>
+            <button (click)="nextImage()"><i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+
+        <div class="modal-info">
+          <h2>{{ selectedProject.title }}</h2>
+          <p class="modal-description">{{ selectedProject.longDescription || selectedProject.description }}</p>
+
+          <div class="modal-tech">
+            <h4>Technologies</h4>
+            <div class="tech-tags">
+              <span *ngFor="let tech of selectedProject.technologies" class="tech-tag">
+                {{ tech }}
+              </span>
+            </div>
+          </div>
+
+          <div class="modal-features">
+            <h4>Key Features</h4>
+            <ul>
+              <li *ngFor="let feature of selectedProject.features">
+                <i class="fas fa-check-circle"></i>
+                {{ feature }}
+              </li>
+            </ul>
+          </div>
+
+          <div class="modal-links">
+            <a *ngIf="selectedProject.githubUrl" [href]="selectedProject.githubUrl" target="_blank" class="btn-outline-custom btn-sm">
+              <i class="fab fa-github"></i> View Code
+            </a>
+            <a *ngIf="selectedProject.liveUrl" [href]="selectedProject.liveUrl" target="_blank" class="btn-primary-custom btn-sm">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

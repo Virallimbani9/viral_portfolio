@@ -1,0 +1,198 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+
+.experience-section {
+  background: rgba(255, 255, 255, 0.01);
+
+  .timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+
+    .timeline-item {
+      position: relative;
+      padding-left: 40px;
+      margin-bottom: 30px;
+
+      @media (max-width: $breakpoint-sm) {
+        padding-left: 30px;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .timeline-marker {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .marker-dot {
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          background: $primary-gradient;
+          border: 3px solid $bg-dark;
+          flex-shrink: 0;
+          z-index: 2;
+        }
+
+        .marker-line {
+          width: 2px;
+          flex: 1;
+          background: linear-gradient(to bottom, $primary-color, transparent);
+          margin-top: 4px;
+        }
+      }
+
+      .timeline-content {
+        cursor: pointer;
+        transition: $transition-smooth;
+        padding: 1.5rem 2rem;
+
+        @media (max-width: $breakpoint-sm) {
+          padding: 1rem 1.25rem;
+        }
+
+        &:hover {
+          transform: translateX(5px);
+          background: rgba(255, 255, 255, 0.08);
+        }
+
+        .exp-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          flex-wrap: wrap;
+          gap: 15px;
+
+          .exp-company {
+            flex: 1;
+
+            h3 {
+              font-size: 1.2rem;
+              font-weight: 700;
+              margin-bottom: 5px;
+              color: $text-light;
+            }
+
+            .exp-title {
+              font-size: 0.95rem;
+              color: $primary-color;
+              font-weight: 500;
+            }
+          }
+
+          .exp-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+
+            .exp-date {
+              font-size: 0.85rem;
+              color: $text-muted;
+            }
+
+            .exp-badge {
+              font-size: 0.75rem;
+              padding: 4px 12px;
+              border-radius: 50px;
+              background: rgba(255, 255, 255, 0.1);
+              color: $text-muted;
+
+              &.current {
+                background: rgba(0, 255, 136, 0.15);
+                color: #00ff88;
+              }
+            }
+
+            .expand-btn {
+              background: none;
+              border: none;
+              color: $text-muted;
+              font-size: 1rem;
+              cursor: pointer;
+              transition: $transition-smooth;
+              padding: 5px;
+
+              &.rotated {
+                transform: rotate(180deg);
+              }
+
+              &:hover {
+                color: $text-light;
+              }
+            }
+          }
+        }
+
+        .exp-details {
+          margin-top: 20px;
+          padding-top: 20px;
+          border-top: 1px solid rgba(255, 255, 255, 0.05);
+          animation: fadeInUp 0.3s ease-out;
+
+          h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: $text-muted;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+          }
+
+          .exp-responsibilities {
+            margin-bottom: 20px;
+
+            ul {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+
+              li {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                padding: 8px 0;
+                color: $text-muted;
+                font-size: 0.95rem;
+                line-height: 1.6;
+
+                i {
+                  color: $primary-color;
+                  font-size: 1rem;
+                  margin-top: 4px;
+                  flex-shrink: 0;
+                }
+              }
+            }
+          }
+
+          .exp-technologies {
+            .tech-tags {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 8px;
+
+              .tech-tag {
+                padding: 4px 14px;
+                border-radius: 50px;
+                background: rgba(108, 99, 255, 0.15);
+                color: $primary-color;
+                font-size: 0.8rem;
+                font-weight: 500;
+                border: 1px solid rgba(108, 99, 255, 0.2);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

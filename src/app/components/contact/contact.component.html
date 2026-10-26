@@ -1,0 +1,113 @@
+<section id="contact" class="contact-section section-padding">
+  <div class="container-custom">
+    <div class="section-header animate-on-scroll">
+      <h2>Let's Connect</h2>
+      <p>Have a project in mind? Let's build something together.</p>
+    </div>
+
+    <div class="contact-content">
+      <div class="contact-info animate-on-scroll">
+        <h3>Get in Touch</h3>
+        <p>
+          I'm always open to new opportunities, collaborations, or just a chat about
+          technology and development.
+        </p>
+
+        <div class="contact-details">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <span class="label">Email</span>
+              <a href="mailto:virallimbani9033&#64;gmail.com">virallimbani9033&#64;gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <span class="label">Phone</span>
+              <a href="tel:+919724836155">+91 97248 36155</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-github"></i>
+            <div>
+              <span class="label">GitHub</span>
+              <a href="https://github.com/Virallimbani9" target="_blank">github.com/viral-limbani</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-linkedin-in"></i>
+            <div>
+              <span class="label">LinkedIn</span>
+              <a href="https://www.linkedin.com/in/viral-limbani-8090b9213/" target="_blank">linkedin.com/in/viral-limbani</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form animate-on-scroll">
+        <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              [(ngModel)]="contactData.name"
+              required
+              placeholder="John Doe"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              [(ngModel)]="contactData.email"
+              required
+              email
+              placeholder="john&#64;example.com"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              [(ngModel)]="contactData.message"
+              required
+              rows="5"
+              placeholder="Tell me about your project..."
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="btn-primary-custom"
+            [disabled]="isSubmitting || !contactForm.form.valid"
+          >
+            <span *ngIf="!isSubmitting">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </span>
+            <span *ngIf="isSubmitting">
+              <i class="fas fa-spinner fa-spin"></i> Sending...
+            </span>
+          </button>
+
+          <div class="form-success" *ngIf="isSubmitted">
+            <i class="fas fa-check-circle"></i>
+            Message sent! I'll get back to you soon.
+          </div>
+
+          <div class="form-error" *ngIf="submitError">
+            <i class="fas fa-exclamation-circle"></i>
+            Something went wrong. Please try again.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

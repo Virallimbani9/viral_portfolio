@@ -1,0 +1,24 @@
+<header [class.scrolled]="isScrolled" class="header">
+  <div class="container-custom">
+    <nav class="navbar">
+      <div class="nav-brand" routerLink="/home">
+        <span class="brand-text">VL</span>
+        <span class="brand-name">Viral Limbani</span>
+      </div>
+
+      <button class="mobile-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" [class.open]="isMenuOpen">
+        <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+        <li><a routerLink="/experience" routerLinkActive="active">Experience</a></li>
+        <li><a routerLink="/skills" routerLinkActive="active">Skills</a></li>
+        <li><a routerLink="/projects" routerLinkActive="active">Projects</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

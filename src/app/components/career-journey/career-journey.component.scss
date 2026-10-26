@@ -1,0 +1,95 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+
+.career-journey-section {
+  background: rgba(255, 255, 255, 0.01);
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+
+  .journey-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 30px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 14px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: $primary-gradient;
+    }
+
+    .journey-step {
+      position: relative;
+      padding: 20px 20px 20px 50px;
+      margin-bottom: 10px;
+
+      .step-number {
+        position: absolute;
+        left: -22px;
+        top: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: $primary-gradient;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.9rem;
+        z-index: 2;
+        box-shadow: 0 5px 20px rgba(108, 99, 255, 0.3);
+      }
+
+      .step-content {
+        background: $bg-card;
+        padding: 20px 25px;
+        border-radius: $border-radius-md;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: $transition-smooth;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.07);
+          transform: translateX(5px);
+        }
+
+        .step-year {
+          display: inline-block;
+          font-size: 0.8rem;
+          font-weight: 600;
+          color: $primary-color;
+          background: rgba(108, 99, 255, 0.1);
+          padding: 2px 12px;
+          border-radius: 50px;
+          margin-bottom: 8px;
+        }
+
+        h3 {
+          font-size: 1.1rem;
+          font-weight: 700;
+          color: $text-light;
+          margin-bottom: 5px;
+        }
+
+        p {
+          font-size: 0.95rem;
+          color: $text-muted;
+          margin: 0;
+        }
+      }
+
+      .step-connector {
+        position: absolute;
+        left: 16px;
+        top: 60px;
+        width: 2px;
+        height: calc(100% - 40px);
+        background: rgba(255, 255, 255, 0.05);
+      }
+    }
+  }
+}

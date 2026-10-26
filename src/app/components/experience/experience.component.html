@@ -1,0 +1,62 @@
+<section id="experience" class="experience-section section-padding">
+  <div class="container-custom">
+    <div class="section-header animate-on-scroll">
+      <h2>Professional Experience</h2>
+      <p>My career journey and professional growth</p>
+    </div>
+
+    <div class="timeline">
+      <div
+        *ngFor="let exp of experiences; let i = index"
+        class="timeline-item animate-on-scroll"
+        [class.active]="isExpanded(exp.id)"
+      >
+        <div class="timeline-marker">
+          <span class="marker-dot"></span>
+          <span class="marker-line" *ngIf="i < experiences.length - 1"></span>
+        </div>
+
+        <div class="timeline-content glass-card" (click)="toggleExpand(exp.id)">
+          <div class="exp-header">
+            <div class="exp-company">
+              <h3>{{ exp.company }}</h3>
+              <span class="exp-title">{{ exp.title }}</span>
+            </div>
+            <div class="exp-meta">
+              <span class="exp-date">
+                {{ exp.startDate }} — {{ exp.current ? 'Present' : exp.endDate }}
+              </span>
+              <span class="exp-badge" [class.current]="exp.current">
+                {{ exp.current ? 'Current' : 'Past' }}
+              </span>
+              <button class="expand-btn" [class.rotated]="isExpanded(exp.id)">
+                <i class="fas fa-chevron-down"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="exp-details" *ngIf="isExpanded(exp.id)">
+            <div class="exp-responsibilities">
+              <h4>Key Responsibilities</h4>
+              <ul>
+                <li *ngFor="let resp of exp.responsibilities">
+                  <i class="fas fa-check-circle"></i>
+                  {{ resp }}
+                </li>
+              </ul>
+            </div>
+
+            <div class="exp-technologies">
+              <h4>Technologies Used</h4>
+              <div class="tech-tags">
+                <span *ngFor="let tech of exp.technologies" class="tech-tag">
+                  {{ tech }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

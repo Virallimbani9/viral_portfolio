@@ -1,0 +1,64 @@
+<section id="about" class="about-section section-padding">
+  <div class="container-custom">
+    <div class="section-header animate-on-scroll">
+      <h2>About Me</h2>
+      <p>Get to know the developer behind the code</p>
+    </div>
+
+    <div class="about-content">
+      <div class="about-image animate-on-scroll">
+        <div class="image-wrapper">
+          <img
+            src="assets/images/Viral-1.png"
+            alt="Viral Limbani - Full-Stack Developer"
+            loading="lazy"
+          />
+          <div class="experience-badge">
+            <span class="years">{{ totalExperience }}</span>
+            <span class="label">Experience</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text animate-on-scroll">
+        <h3>Building Complete Solutions from Frontend to Backend</h3>
+        <p>
+          I'm a Full-Stack Software Developer with <strong>{{ totalExperience }}</strong> of professional experience
+          in the JavaScript ecosystem. My expertise spans across modern web technologies,
+          allowing me to build complete, production-ready applications.
+        </p>
+        <p>
+          I specialize in building scalable backend services with <strong>Node.js and NestJS</strong>,
+          creating responsive frontends with <strong>Angular and React</strong>, and designing
+          efficient database architectures with <strong>MongoDB and MySQL</strong>.
+        </p>
+        <p>
+          My professional journey has taken me from building multiplayer game backends
+          to developing AI-powered applications, giving me a versatile skill set that
+          adapts to various project needs.
+        </p>
+
+        <div class="about-stats">
+          <div class="stat-item">
+            <span class="stat-number">{{ totalExperience }}</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">4</span>
+            <span class="stat-label">Projects Shipped</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">3</span>
+            <span class="stat-label">Companies Worked</span>
+          </div>
+        </div>
+
+        <div class="education-info">
+          <h4>🎓 Education</h4>
+          <p><strong>{{ education.degree }}</strong></p>
+          <p>{{ education.institution }} | CGPA: {{ education.cgpa }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

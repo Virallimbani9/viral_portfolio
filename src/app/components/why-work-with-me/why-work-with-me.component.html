@@ -1,0 +1,21 @@
+<section class="why-section section-padding">
+  <div class="container-custom">
+    <div class="section-header animate-on-scroll">
+      <h2>Why Work With Me</h2>
+      <p>What I bring to every project</p>
+    </div>
+
+    <div class="reasons-grid">
+      <div
+        *ngFor="let reason of reasons"
+        class="reason-card animate-on-scroll"
+      >
+        <div class="reason-icon">
+          <i [class]="'fas ' + reason.icon"></i>
+        </div>
+        <h3>{{ reason.title }}</h3>
+        <p>{{ reason.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
